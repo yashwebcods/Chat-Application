@@ -10,6 +10,7 @@ function Sidebar() {
     const { onlineUsers } = useAuthStore()
 
     useEffect(() => {
+        console.log(users);
         getUsers()
     }, [getUsers])
 

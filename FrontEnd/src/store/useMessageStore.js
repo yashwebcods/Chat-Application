@@ -15,9 +15,9 @@ export const useMessageStore = create((set,get) => ({
     getUsers: async () => {
         set({ isUsersLoading: true })
         try {
-            
             const res = await axiosInstance.get('/message/users')            
             set({ users: res.data })
+            // console.log(res);
         } catch (err) {
             toast.error(err.response.err.message)
         } finally {
