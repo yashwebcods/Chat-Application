@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useMessageStore } from '../store/useMessageStore'
-import SidebarSkeleton from './Skeletons/sidebarSkeleton'
+import SidebarSkeleton from './Skeletons/SidebarSkeleton'
 import { User } from 'lucide-react'
 import { useAuthStore } from '../store/useAuthStore'
 
