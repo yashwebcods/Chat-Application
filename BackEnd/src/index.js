@@ -17,7 +17,7 @@ app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 
 app.use(cors({
-  origin:["http://localhost:8001","https://chat-application-s8vu.onrender.com"], 
+  origin:["http://localhost:5173", "http://localhost:5174","https://chat-application-s8vu.onrender.com"], 
   credentials: true 
 }));
 
