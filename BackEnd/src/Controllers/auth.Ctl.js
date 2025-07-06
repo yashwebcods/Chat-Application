@@ -9,13 +9,13 @@ export const Signup = async (req, res) => {
         const { email, fullName, password } = req.body;
 
         if (password.length < 6) {
-            res.status(400).json({ message: 'Password must be greater than 6 characters' });
+           return res.status(400).json({ message: 'Password must be greater than 6 characters' });
         }
 
         // Check if the user already exists before creating a new one
         let isExist = await User.findOne({ email });
         if (isExist) {
-            res.status(400).json({ message: 'User already exists' });
+           return  res.status(400).json({ message: 'User already exists' });
         }
 
         // Hash the password before saving
@@ -33,10 +33,10 @@ export const Signup = async (req, res) => {
         if (newUser) {
             await newUser.save();
             tokenGenerator(newUser._id, res)
-            res.status(201).json({ message: 'User registered successfully' });
+           return res.status(201).json({ message: 'User registered successfully' });
         }
 
-        res.status(500).json({ message: 'Failed to register user' });
+        return res.status(500).json({ message: 'Failed to register user' });
 
     } catch (err) {
         res.status(500).json({ message: 'Internal server error', error: err.message });
